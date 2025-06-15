@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer components {
+  .heading {
+    @apply text-2xl font-semibold text-gray-800 sm:text-3xl md:text-4xl;
+  }
+  .subheading {
+    @apply mt-3 text-base text-gray-600 md:text-lg;
+  }
+  .headbox {
+    @apply mx-auto mb-8 max-w-xl text-center md:mb-16;
+  }
+  .pagehead {
+    @apply text-center text-xl text-black md:text-2xl lg:text-3xl;
+  }
+  .pageheadbox {
+    @apply mx-auto max-w-3xl;
+  }
+  .pagesubheading {
+    @apply px-4 text-base text-gray-700 md:text-lg;
+  }
+  .pageline {
+    @apply -mx-16 my-2 mb-8;
+  }
+}
+
+@theme {
+  --font-sans: "Mont", sans-serif;
+  --color-primary: #5135ff;
+  --color-cardbg: #4e2680;
+}

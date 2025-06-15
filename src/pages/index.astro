@@ -1,0 +1,28 @@
+---
+import Hero from "~components/home/Hero.astro";
+import Services from "~components/home/Services";
+import Layout from "../layouts/Layout.astro";
+import Stats from "~components/home/Stats.astro";
+import { WorksCarousel } from "~components/home/WorksCarousel";
+// import CTAForm from "~components/home/CTAForm.astro";
+// import FAQ from "~components/home/FAQ";
+// import { VelocityText } from "~components/home/VelocityText";
+// import Testmonials from "~components/home/Testmonials.astro";
+---
+
+<Layout
+  title="Netronk Innovations - Redefining Digital Experiences"
+  description="Discover Netronk Innovations, where we redefine digital experiences through cutting-edge solutions in frontend development, web design, and AI integration."
+  canonical={new URL(Astro.url.pathname, Astro.site).href}
+>
+  <main class="mx-auto max-w-6xl flex-col gap-y-8 px-4 md:px-8">
+    <Hero />
+    <Stats />
+    <WorksCarousel client:load />
+    <!-- <VelocityText client:load /> -->
+    <Services client:load />
+    <!-- <Testmonials /> -->
+    <!-- <CTAForm /> -->
+    <!-- <FAQ client:load /> -->
+  </main>
+</Layout>

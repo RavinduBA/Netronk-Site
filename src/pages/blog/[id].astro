@@ -1,0 +1,183 @@
+---
+export const prerender = true;
+
+import { Picture } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import TableOfContents from "~components/blog/TableOfContents.astro";
+import Layout from "~layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+
+  return blogEntries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+const imgPath = "blog/" + entry.id + ".png";
+// Get related posts (you can implement your own logic)
+const allPosts = await getCollection("blog");
+const relatedPosts = allPosts
+  .filter((post) => post.id !== entry.id)
+  .filter((post) =>
+    post.data.tags?.some((tag) => entry.data.tags?.includes(tag)),
+  )
+  .slice(0, 3);
+
+if (relatedPosts.length === 0) {
+  relatedPosts.push(
+    ...allPosts.filter((post) => post.id !== entry.id).slice(0, 3),
+  );
+}
+---
+
+<Layout
+  title={`${entry.data.title}`}
+  description={`${entry.data.description}`}
+  canonical={new URL(Astro.url.pathname, Astro.site).href}
+  ogType="article"
+  ogUrl={new URL(Astro.url.pathname, Astro.site).href}
+  ogImage={imgPath}
+  pubDatetime={entry.data.publishDate.toISOString()}
+  modDatetime={entry.data.publishDate.toISOString()}
+>
+  <main
+    class="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 py-4 md:grid-cols-3 md:px-8 md:py-16"
+  >
+    <article class="prose col-span-2 w-full">
+      <div class="pb-4 md:pb-8">
+        <h1
+          transition:name={entry.data.title}
+          class="font-sans text-xl font-bold capitalize md:text-3xl lg:text-4xl"
+        >
+          {entry.data.title}
+        </h1>
+        <p>{entry.data.description}</p>
+        <Picture
+          src={entry.data.image.src}
+          alt={entry.data.title}
+          formats={["avif", "webp"]}
+          class="mt-8 rounded-lg"
+        />
+        <p class="text-sm text-gray-700">
+          Published on {
+            entry.data.publishDate.toLocaleString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+              timeZone: "UTC", // Specify the desired time zone here (e.g., 'UTC')
+              hour12: true, // Display time in 12-hour format with AM/PM
+            })
+          } By {entry.data.author}
+        </p>
+      </div>
+      <Content />
+    </article>
+    <!-- Right Sidebar -->
+    <aside class="space-y-8">
+      <!-- Table of Contents -->
+      <TableOfContents headings={headings} />
+
+      <!-- Related Posts -->
+      <div class="rounded-lg border border-gray-200 p-6">
+        <h3 class="mb-4 font-semibold text-gray-900 sm:text-lg">
+          Related Posts
+        </h3>
+        <div class="space-y-4">
+          {
+            relatedPosts?.slice(0, 3).map((post) => (
+              <a href={`/blog/${post.id}`} class="group block">
+                <h4 class="group-hover:text-primary line-clamp-2 text-sm font-medium text-gray-900">
+                  {post.data.title}
+                </h4>
+                <p class="mt-1 text-xs text-gray-600">
+                  {post.data.publishDate.toDateString()}
+                </p>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="rounded-lg border border-gray-200 p-6">
+        <h3 class="mb-4 font-semibold text-gray-900">Share this article</h3>
+        <div class="flex gap-4">
+          <a
+            href={`https://twitter.com/intent/tweet?text=${entry.data.title}&url=${Astro.url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
+          >
+            <!-- Twitter Icon -->
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+              ></path>
+            </svg>
+          </a>
+          <!-- Add more social share buttons as needed -->
+
+          <!-- LinkedIn Icon -->
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${Astro.url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
+          >
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
+          >
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </main>
+</Layout>
+
+<script>
+  // Remove autoplay from videos when `prefers-reduced-motion: reduce`
+  const autoplayVideos = document.querySelectorAll("video[autoplay]");
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (prefersReducedMotion) {
+    autoplayVideos.forEach((video) => {
+      video.removeAttribute("autoplay");
+      // Add controls attribute so user can still play the video if they want
+      video.setAttribute("controls", "true");
+    });
+  }
+</script>
+
+<style lang="postcss">
+  @reference "~styles/global.css";
+  div.containerbox {
+    @apply pt-20 px-2 md:pt-40 pb-8;
+  }
+
+  h1.title {
+    @apply text-gray-300 mt-8 mb-4;
+  }
+</style>

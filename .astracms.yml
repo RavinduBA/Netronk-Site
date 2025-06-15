@@ -1,0 +1,289 @@
+media: public/images
+
+content:
+  - name: blog
+    label: Blog
+    type: collection
+    path: "src/content/blog"
+    filename: "{fields.title}.md"
+    view:
+      fields: [title, description, publishDate, tags]
+    fields:
+      - name: isDraft
+        label: Draft
+        type: boolean
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: sortOrder
+        label: Sort Order
+        type: number
+      - name: image
+        label: Image
+        type: object
+        fields:
+          - name: src
+            label: Image Src
+            type: image
+          - name: alt
+            label: Alt Text
+            type: string
+          - name: srcset
+            label: Srcset
+            type: string
+            required: false
+      - name: author
+        label: Author
+        type: string
+        default: "Anonymous"
+      - name: authorPossion
+        label: Author Position
+        type: string
+        required: false
+      - name: language
+        label: Language
+        type: select
+        options:
+          values: ["en", "es"]
+      - name: tags
+        label: Tags
+        type: object
+        fields:
+          - name: tag1
+            type: string
+          - name: tag2
+            type: string
+          - name: tag3
+            type: string
+      - name: footnote
+        label: Footnote
+        type: string
+        required: false
+      - name: publishDate
+        label: Publish Date
+        type: date
+      - name: canonicalURL
+        label: Canonical URL
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: works
+    label: Works
+    type: collection
+    path: "src/content/works"
+    filename: "{fields.slug}.md"
+    view:
+      fields: [title, shorttitle, sortOrder]
+    fields:
+      - name: slug
+        label: Slug
+        type: string
+      - name: isDraft
+        label: Draft
+        type: boolean
+      - name: title
+        label: Title
+        type: string
+      - name: shorttitle
+        label: Short Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: keyWords
+        label: keyWords
+        type: object
+        fields:
+          - name: keyword1
+            type: string
+          - name: keyword2
+            type: string
+          - name: keyword3
+            type: string
+      - name: sortOrder
+        label: Sort Order
+        type: number
+      - name: image
+        label: Image
+        type: object
+        fields:
+          - name: src
+            label: Image Src
+            type: image
+          - name: alt
+            label: Alt Text
+            type: string
+      - name: author
+        label: Author
+        type: string
+        default: "Anonymous"
+      - name: language
+        label: Language
+        type: select
+        options:
+          values: ["en", "es"]
+      - name: tags
+        label: Tags
+        type: object
+        fields:
+          - name: tag1
+            type: string
+          - name: tag2
+            type: string
+          - name: tag3
+            type: string
+      - name: footnote
+        label: Footnote
+        type: string
+        required: false
+      - name: publishDate
+        label: Publish Date
+        type: date
+      - name: authorContact
+        label: Author Email
+        type: string
+      - name: canonicalURL
+        label: Canonical URL
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: services
+    label: Services
+    type: collection
+    path: "src/content/services"
+    filename: "{fields.title}.md"
+    view:
+      fields: [title, sortOrder]
+    fields:
+      - name: isDraft
+        label: Draft
+        type: boolean
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: icon
+        label: Icon
+        type: string
+      - name: keyWords
+        label: keyWords
+        type: object
+        fields:
+          - name: keyword1
+            type: string
+          - name: keyword2
+            type: string
+          - name: keyword3
+            type: string
+      - name: sortOrder
+        label: Sort Order
+        type: number
+      - name: image
+        label: Image
+        type: object
+        fields:
+          - name: src
+            label: Image Src
+            type: image
+          - name: alt
+            label: Alt Text
+            type: string
+          - name: srcset
+            label: Srcset
+            type: string
+            required: false
+      - name: publishDate
+        label: Publish Date
+        type: date
+      - name: canonicalURL
+        label: Canonical URL
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: technologies
+    label: Technologies
+    type: collection
+    path: "src/content/technologies"
+    filename: "{fields.title}.md"
+    view:
+      fields: [title, sortOrder]
+    fields:
+      - name: isDraft
+        label: Draft
+        type: boolean
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: sortOrder
+        label: Sort Order
+        type: number
+      - name: isPartner
+        label: Is Partner
+        type: boolean
+      - name: isClient
+        label: Is Client
+        type: boolean
+      - name: image
+        label: Image
+        type: object
+        fields:
+          - name: src
+            label: Image Src
+            type: image
+          - name: alt
+            label: Alt Text
+            type: string
+          - name: srcset
+            label: Srcset
+            type: string
+            required: false
+      - name: publishDate
+        label: Publish Date
+        type: date
+      - name: canonicalURL
+        label: Canonical URL
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: legal
+    label: Legal Pages
+    type: collection
+    path: "src/content/legal"
+    filename: "{fields.title}.md"
+    view:
+      fields: [title, updatedDate]
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: publishDate
+        label: Publish Date
+        type: date
+      - name: updatedDate
+        label: Updated Date
+        type: date
+      - name: canonicalURL
+        label: Canonical URL
+        type: string
+      - name: body
+        label: Body
+        type: rich-text

@@ -1,0 +1,114 @@
+---
+export const prerender = true;
+
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "~layouts/Layout.astro";
+import type { GetStaticPaths, Page } from "astro";
+import BlogCard from "~components/blog/BlogCard.astro";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = await getCollection("blog");
+
+  posts.sort((a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) => {
+    return (
+      new Date(b.data.publishDate).getTime() -
+      new Date(a.data.publishDate).getTime()
+    );
+  });
+
+  return paginate(posts, { pageSize: 3 });
+};
+
+type Props = {
+  page: Page<CollectionEntry<"blog">>;
+};
+
+const page = Astro.props.page;
+---
+
+<Layout
+  title="The Netronk Blog"
+  ogTitle="The Netronk Blog"
+  canonical={new URL(Astro.url.pathname, Astro.site).href}
+  description="The Netronk Blog is where we share our thoughts on the latest trends in the tech industry."
+>
+  <main class="mx-auto max-w-6xl flex-col gap-y-8 px-4 md:px-8">
+    <section class="mt-4 md:mt-16" id="hero">
+      <div class="flex flex-col gap-4 py-8 md:py-16 lg:py-20">
+        <h1
+          class="max-w-2xl font-sans text-3xl font-bold md:text-4xl lg:text-7xl"
+        >
+          Insights & Innovations from Netronk
+        </h1>
+        <p class="max-w-4xl text-base text-gray-700 md:text-lg lg:text-xl">
+          Explore the latest trends, expert tips, and in-depth articles from the
+          digital world. At Netronk, we share our knowledge on web development,
+          e-commerce, mobile apps, and cutting-edge technologies to keep you
+          informed and inspired. Dive into our blog and stay ahead in the
+          ever-evolving tech landscape.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="pb-8 lg:pb-16">
+        {
+          page.data.length > 0 && (
+            <BlogCard blog={page.data[0]} isHorizontal={true} />
+          )
+        }
+      </div>
+      <div class="blogbox">
+        <ul class="posts">
+          {
+            page.data.slice(1).map((blogPostEntry, index) => (
+              <li>
+                <BlogCard blog={blogPostEntry} index={index} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+    <section class="my-4 pt-8 md:my-8">
+      <div class="flex items-center justify-center gap-4">
+        {
+          page.url.prev && (
+            <a
+              href={page.url.prev}
+              class="rounded bg-gray-200 px-4 py-2 font-bold text-gray-800 hover:bg-gray-300"
+              aria-label="Previous page"
+            >
+              Previous
+            </a>
+          )
+        }
+        <span class="text-gray-600">
+          Page {page.currentPage} of {Math.ceil(page.total / 3)}
+        </span>
+
+        {
+          page.url.next && (
+            <a
+              href={page.url.next}
+              class="rounded bg-gray-200 px-4 py-2 font-bold text-gray-800 hover:bg-gray-300"
+              aria-label="Next page"
+            >
+              Next
+            </a>
+          )
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style lang="postcss">
+  @reference "~styles/global.css";
+  div.blogbox {
+    @apply flex justify-start items-baseline mb-12;
+  }
+
+  ul.posts {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 place-content-center;
+  }
+</style>

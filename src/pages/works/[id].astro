@@ -1,0 +1,66 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from "astro:content";
+import Layout from "~layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("works");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+// Add these to your existing imports
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+// Get other works for the "More Projects" section
+const allWorks = await getCollection("works");
+const otherWorks = allWorks.filter((work) => work.id !== post.id).slice(0, 3);
+---
+
+<Layout title={`${post.data.title}`} description={`${post.data.description}`}>
+  <main
+    class="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-4 py-4 md:grid-cols-3 md:px-8 md:py-16"
+  >
+    <article class="prose col-span-2 w-full">
+      <Content />
+    </article>
+
+    <!-- Project Info Sidebar -->
+    <aside class="space-y-8">
+      <!-- More Projects -->
+      <div class="rounded-md border border-gray-200 p-6">
+        <h3 class="font-boldtext-gray-800 mb-6 text-xl">More Projects</h3>
+        <div class="space-y-6">
+          {
+            otherWorks.map((work) => (
+              <a href={`/works/${work.id}`} class="group block">
+                <h4 class="group-hover:text-primary text-sm font-medium text-gray-800">
+                  {work.data.title}
+                </h4>
+                <p class="mt-1 text-sm text-gray-400">{work.data.shorttitle}</p>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Contact CTA -->
+      <div class="rounded-md border border-gray-200 p-6 text-center">
+        <h3 class="font-boldtext-gray-800 text-xl">Start a Project</h3>
+        <p class="mt-2 text-gray-600">
+          Interested in working together? Let's discuss your project.
+        </p>
+        <a
+          href="/contact"
+          class="border-primary hover:bg-primary/10 mt-4 inline-block rounded-full border px-4 py-2 text-sm font-medium text-gray-800"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </aside>
+  </main>
+</Layout>

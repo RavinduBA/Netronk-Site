@@ -1,0 +1,527 @@
+---
+import { actions } from "astro:actions";
+
+import Layout from "~layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact Netronk Innovation - Your Tech Solutions Partner"
+  ogTitle="Get in Touch with Netronk Innovation - Expertise in Web, Mobile, AI Design & Development."
+  canonical={new URL(Astro.url.pathname, Astro.site).href}
+  description="Reach out to Netronk Innovation for cutting-edge tech solutions in [Your Specific Field or Service]. We're here to answer your questions and discuss how we can help your business grow."
+>
+  <main class="mx-auto max-w-6xl flex-col gap-y-8 px-4 md:px-8">
+    <section class="mt-4 md:mt-16" id="hero">
+      <div class="flex flex-col gap-4 py-8 md:py-16 lg:py-20">
+        <h1
+          class="max-w-2xl font-sans text-2xl font-bold md:text-3xl lg:text-5xl"
+        >
+          Let's Talk
+        </h1>
+        <p class="max-w-4xl text-sm text-gray-700 md:text-base lg:text-lg">
+          Have some big idea or brand to develop and need help? Then reach out.
+          We'd love to hear about your project and provide help.
+        </p>
+      </div>
+    </section>
+    <form
+      id="form"
+      enctype="multipart/form-data"
+      class="needs-validation flex flex-col gap-8 md:gap-12 lg:gap-24"
+      novalidate
+      method="POST"
+      action={actions.contact}
+    >
+      <input
+        type="checkbox"
+        class="hidden"
+        style="display:none"
+        name="botcheck"
+      />
+
+      <!-- Building section -->
+      <section>
+        <h2
+          class="text-start font-sans text-2xl font-bold md:text-3xl lg:text-4xl"
+        >
+          What are you building?
+        </h2>
+        <div
+          class="mt-8 flex w-full flex-col gap-2 whitespace-nowrap sm:flex-row md:gap-4"
+        >
+          <div>
+            <input
+              type="checkbox"
+              id="mobileapp"
+              name="building"
+              value="Mobile App"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer items-center gap-2 border-2 border-gray-400 p-4"
+              for="mobileapp"
+            >
+              <p class="text-base uppercase">Mobile App</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="website"
+              name="building"
+              value="Website"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer items-center gap-2 border-2 border-gray-400 p-4"
+              for="website"
+            >
+              <p class="text-base uppercase">Website</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="custom-software"
+              name="building"
+              value="Custom Software"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer items-center gap-2 border-2 border-gray-400 p-4"
+              for="custom-software"
+            >
+              <p class="text-base uppercase">Custom Software</p>
+            </label>
+          </div>
+        </div>
+        <div class="empty-feedback mt-1 text-sm text-red-400">
+          Please select at least one option.
+        </div>
+      </section>
+
+      <!-- Services section -->
+      <section>
+        <h2
+          class="text-start font-sans text-2xl font-bold md:text-3xl lg:text-4xl"
+        >
+          What services do you need?
+        </h2>
+        <div
+          class="mt-8 flex w-full flex-col flex-wrap gap-2 whitespace-nowrap sm:flex-row md:gap-4"
+        >
+          <div>
+            <input
+              type="checkbox"
+              id="uiux"
+              name="services"
+              value="UI / UX Design"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer items-center gap-2 border-2 border-gray-400 p-4"
+              for="uiux"
+            >
+              <p class="text-base uppercase">UI / UX Design</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="development"
+              name="services"
+              value="Development"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer items-center gap-2 border-2 border-gray-400 p-4"
+              for="development"
+            >
+              <p class="text-base uppercase">Development</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="assets"
+              name="services"
+              value="Assets Design"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer items-center gap-2 border-2 border-gray-400 p-4"
+              for="assets"
+            >
+              <p class="text-base uppercase">Assets Design</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="marketing"
+              name="services"
+              value="Marketing"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer items-center gap-2 border-2 border-gray-400 p-4"
+              for="marketing"
+            >
+              <p class="text-base uppercase">Marketing</p>
+            </label>
+          </div>
+        </div>
+        <div class="empty-feedback mt-1 text-sm text-red-400">
+          Please select at least one service.
+        </div>
+      </section>
+
+      <!-- Budget section -->
+      <section>
+        <h2
+          class="text-start font-sans text-2xl font-bold md:text-3xl lg:text-4xl"
+        >
+          Expected budget
+        </h2>
+        <div class="mt-8 flex w-full flex-col gap-2 sm:flex-row md:gap-4">
+          <div>
+            <input
+              type="radio"
+              id="budget-1"
+              name="budget"
+              value="$200 - $1k"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer flex-col border-2 border-gray-400 p-4"
+              for="budget-1"
+            >
+              <p class="text-base uppercase">$200 - $1k</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="budget-2"
+              name="budget"
+              value="$1k - $5k"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer flex-col border-2 border-gray-400 p-4"
+              for="budget-2"
+            >
+              <p class="text-base uppercase">$1k - $5k</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="budget-3"
+              name="budget"
+              value="$5k - $10k"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer flex-col border-2 border-gray-400 p-4"
+              for="budget-3"
+            >
+              <p class="text-base uppercase">$5k - $10k</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="budget-4"
+              name="budget"
+              value="$10k - $100k"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer flex-col border-2 border-gray-400 p-4"
+              for="budget-4"
+            >
+              <p class="text-base uppercase">$10k - $100k</p>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="budget-5"
+              name="budget"
+              value="$100k+"
+              class="hidden"
+            />
+            <label
+              class="flex cursor-pointer flex-col border-2 border-gray-400 p-4"
+              for="budget-5"
+            >
+              <p class="text-base uppercase">$100k+</p>
+            </label>
+          </div>
+        </div>
+        <div class="empty-feedback mt-1 text-sm text-red-400">
+          Please select a budget range.
+        </div>
+      </section>
+
+      <!-- Details section with updated validation -->
+      <section class="">
+        <h2
+          class="text-start font-sans text-2xl font-bold md:text-3xl lg:text-4xl"
+        >
+          Your details
+        </h2>
+        <div class="mt-8 space-y-8">
+          <div>
+            <label
+              for="name"
+              class="block text-base font-medium text-gray-900 md:text-lg"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="focus:border-primary focus:ring-primary/20 mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:ring-2"
+            />
+            <div class="empty-feedback mt-1 text-sm text-red-400">
+              Please provide your name.
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="email"
+              class="block text-base font-medium text-gray-900 md:text-lg"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="focus:border-primary focus:ring-primary/20 mt-2 block w-full rounded-md border border-gray-300 px-4 py-3 focus:ring-2"
+            />
+            <div class="empty-feedback mt-1 text-sm text-red-400">
+              Please provide your email address.
+            </div>
+            <div class="invalid-feedback mt-1 text-sm text-red-400">
+              Please provide a valid email address.
+            </div>
+          </div>
+          <div>
+            <label
+              for="about"
+              class="block text-base font-medium text-gray-900 md:text-lg"
+              >About Your Project</label
+            >
+            <textarea
+              id="about"
+              name="about"
+              rows="4"
+              required
+              class="mt-2 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-transparent"
+            ></textarea>
+          </div>
+
+          <!-- File upload section -->
+          <div class="col-span-full w-full">
+            <label
+              for="file-upload"
+              class="block text-base font-medium text-gray-900 md:text-lg"
+            >
+              Attachments (optional)
+            </label>
+            <div
+              class="mt-2 flex w-full justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
+              id="drop-zone"
+            >
+              <div class="text-center">
+                <svg
+                  class="mx-auto size-12 text-gray-300"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+                <div class="mt-4 flex text-gray-600 md:text-base">
+                  <label
+                    for="file-upload"
+                    class="text-primary hover:text-primary relative cursor-pointer rounded-md bg-white focus-within:ring-0 focus-within:ring-offset-2 focus-within:outline-hidden"
+                  >
+                    <span>Upload files</span>
+                    <input
+                      id="file-upload"
+                      name="attachments"
+                      type="file"
+                      accept=".docx,.jpg,.jpeg,.pdf"
+                      multiple
+                      class="sr-only"
+                    />
+                  </label>
+                  <p class="pl-1">or drag and drop</p>
+                </div>
+                <p class="text-xs text-gray-600">
+                  DOCX, JPG, PDF (max 50MB each)
+                </p>
+                <div
+                  id="file-list"
+                  class="mt-4 flex flex-col space-y-2 sm:space-y-4"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="result" class="mt-3 text-center"></div>
+
+        <div class="mt-6 flex justify-end gap-4">
+          <button
+            type="reset"
+            class="bg-gray-100 px-6 py-3 text-gray-700 hover:bg-gray-200"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="bg-primary/90 focus:ring-primary/20 hover:bg-primary px-6 py-3 text-gray-100"
+          >
+            Submit
+          </button>
+        </div>
+      </section>
+    </form>
+  </main>
+</Layout>
+
+<style>
+  @reference "~styles/global.css";
+  .invalid-feedback,
+  .empty-feedback {
+    display: none;
+  }
+
+  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+    display: block;
+  }
+
+  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .is-invalid,
+  .was-validated :invalid {
+    border-color: #dc3545;
+  }
+
+  input:checked + label {
+    @apply border-primary border-2;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form");
+    const fileUpload = document.getElementById("file-upload");
+    const fileList = document.getElementById("file-list");
+    const dropZone = document.getElementById("drop-zone");
+
+    // Handle file selection
+    function handleFiles(files) {
+      for (const file of files) {
+        const fileSize = file.size / 1024; // Convert to KB
+        if (fileSize > 50000) {
+          // 50MB limit
+          alert(`File ${file.name} is larger than 50MB`);
+          continue;
+        }
+
+        // Create file item element
+        const fileItem = document.createElement("div");
+        fileItem.className =
+          "flex items-center justify-between bg-gray-50 p-2 rounded px-4 sm:px-8 gap-4 sm:gap-8";
+
+        const fileName = document.createElement("span");
+        fileName.className = "text-sm text-gray-600";
+        fileName.textContent = file.name;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.className = "text-red-500 hover:text-red-700 text-sm";
+        removeBtn.textContent = "Remove";
+
+        removeBtn.onclick = () => {
+          fileItem.remove();
+          // Remove file from FileList
+          const dt = new DataTransfer();
+          const input = fileUpload;
+          const { files } = input;
+
+          for (let i = 0; i < files.length; i++) {
+            const f = files[i];
+            if (f.name !== file.name) dt.items.add(f);
+          }
+
+          input.files = dt.files;
+        };
+
+        fileItem.appendChild(fileName);
+        fileItem.appendChild(removeBtn);
+        fileList.appendChild(fileItem);
+      }
+    }
+
+    // File input change handler
+    fileUpload.addEventListener("change", (e) => {
+      handleFiles(e.target.files);
+    });
+
+    // Drag and drop handlers
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("border-primary");
+    });
+
+    dropZone.addEventListener("dragleave", (e) => {
+      e.preventDefault();
+      dropZone.classList.remove("border-primary");
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropZone.classList.remove("border-primary");
+      const dt = e.dataTransfer;
+      handleFiles(dt.files);
+    });
+
+    // Updated form submit handler
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      form.classList.add("was-validated");
+
+      // Validation checks
+      const building = form.querySelectorAll(
+        'input[name="building"]:checked',
+      ).length;
+      const services = form.querySelectorAll(
+        'input[name="services"]:checked',
+      ).length;
+      const budget = form.querySelector('input[name="budget"]:checked');
+
+      if (!building || !services || !budget || !form.checkValidity()) {
+        form.querySelectorAll(":invalid")[0].focus();
+        return;
+      }
+    });
+  });
+</script>

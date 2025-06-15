@@ -1,0 +1,181 @@
+---
+import { Picture } from "astro:assets";
+import Layout from "~layouts/Layout.astro";
+
+import about1 from "../assets/about/about-1.jpg";
+import about2 from "../assets/about/about-2.jpg";
+// import teamm1 from "../assets/about/team/member-1.jpg";
+---
+
+<Layout
+  title="About The Netronk"
+  ogTitle="About The Netronk"
+  canonical={new URL(Astro.url.pathname, Astro.site).href}
+  description="The Netronk Services are a set of services that are used to power the Netronk ecosystem."
+>
+  <main class="mx-auto max-w-6xl flex-col gap-y-8 px-4 md:px-8">
+    <section class="mt-4 md:mt-16" id="hero">
+      <div class="flex flex-col gap-4 py-8 md:py-16 lg:py-20">
+        <h1
+          class="max-w-2xl font-sans text-3xl font-bold md:text-4xl lg:text-7xl"
+        >
+          Innovative, Skilled, Synergized.
+        </h1>
+        <p class="max-w-4xl text-base text-gray-700 md:text-lg lg:text-xl">
+          What is Netronk in a nutshell? Individually, we’re developers,
+          designers, and strategists. Together, we’re a passionate team turning
+          ideas into impactful digital solutions.
+        </p>
+      </div>
+    </section>
+    <section class="relative py-24" id="about">
+      <div
+        class="grid w-full grid-cols-1 items-center justify-start gap-12 lg:grid-cols-2"
+      >
+        <div
+          class="order-last grid w-full grid-cols-1 items-start justify-center gap-6 sm:grid-cols-2 lg:order-first"
+        >
+          <div
+            class="flex items-start justify-start gap-2.5 pt-24 sm:justify-end lg:justify-center"
+          >
+            <Picture
+              class="rounded-xl object-cover"
+              formats={["avif", "webp"]}
+              src={about1}
+              alt="developers focus on screen"
+            />
+          </div>
+          <Picture
+            class="rounded-xl object-cover"
+            formats={["avif", "webp"]}
+            src={about2}
+            alt="developers working on table"
+          />
+        </div>
+        <div
+          class="inline-flex w-full flex-col items-center justify-center gap-10 lg:items-start"
+        >
+          <div class="flex w-full flex-col items-start justify-center gap-8">
+            <div
+              class="flex w-full flex-col items-center justify-start gap-3 lg:items-start"
+            >
+              <h2
+                class="mb-7 text-center text-2xl font-bold text-gray-900 md:text-3xl lg:text-left lg:text-5xl"
+              >
+                Driving Excellence, Delivering Results
+              </h2>
+              <p
+                class="text-center text-base leading-relaxed font-normal text-gray-500 lg:text-start"
+              >
+                Netronk is a powerhouse of innovation, blending technology,
+                creativity, and expertise to craft impactful digital solutions.
+                Our focus is on empowering businesses through tailored web,
+                mobile, and e-commerce experiences that leave a lasting impact.
+              </p>
+            </div>
+            <div
+              class="inline-flex w-full items-center justify-center gap-5 sm:gap-10 lg:justify-start"
+            >
+              <div class="inline-flex flex-col items-start justify-start">
+                <h3
+                  class="font-manrope text-4xl leading-normal font-bold text-gray-900"
+                >
+                  5+
+                </h3>
+                <h6 class="text-base leading-relaxed font-normal text-gray-500">
+                  Years of Experience
+                </h6>
+              </div>
+              <div class="inline-flex flex-col items-start justify-start">
+                <h4
+                  class="font-manrope text-4xl leading-normal font-bold text-gray-900"
+                >
+                  100+
+                </h4>
+                <h6 class="text-base leading-relaxed font-normal text-gray-500">
+                  Successful Projects
+                </h6>
+              </div>
+              <div class="inline-flex flex-col items-start justify-start">
+                <h4
+                  class="font-manrope text-4xl leading-normal font-bold text-gray-900"
+                >
+                  50+
+                </h4>
+                <h6 class="text-base leading-relaxed font-normal text-gray-500">
+                  Satisfied Clients
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="rounded-lg bg-gray-50 py-4 md:rounded-xl md:py-8 lg:rounded-3xl"
+      id="team"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col items-center justify-between md:mt-20 lg:flex-row"
+        >
+          <div class="w-full px-4 lg:w-1/2">
+            <h2
+              class="mb-7 text-center text-2xl font-bold text-gray-900 md:text-3xl lg:text-left lg:text-5xl"
+            >
+              Meet the Minds Behind Netronk
+            </h2>
+            <p class="mb-16 text-center text-lg text-gray-500 lg:text-left">
+              Our team is a blend of creative designers, skilled developers, and
+              strategic thinkers, all working together to craft innovative
+              digital solutions. Every member of Netronk brings unique expertise
+              and passion, driving our mission to empower businesses with
+              transformative technology.
+            </p>
+            <a
+              href="/contact"
+              class="font-semiboldtext-gray-800 mx-auto block w-60 cursor-pointer rounded-full bg-indigo-600 px-8 py-3 text-center text-base transition-all duration-500 hover:bg-indigo-700 lg:mx-0"
+              >Join our team</a
+            >
+          </div>
+          <div class="mt-16 w-full max-lg:max-w-2xl md:mt-40 lg:mt-0 lg:w-1/2">
+            <div
+              class="grid grid-cols-1 gap-8 min-[450px]:grid-cols-2 md:grid-cols-3"
+            >
+              <img
+                src="https://pagedone.io/asset/uploads/1696238644.png"
+                alt="Team tailwind section"
+                class="mx-auto h-56 w-44 rounded-2xl object-cover min-[450px]:mr-0 md:mt-20"
+              />
+              <img
+                src="https://pagedone.io/asset/uploads/1696238665.png"
+                alt="Team tailwind section"
+                class="mx-auto h-56 w-44 rounded-2xl object-cover min-[450px]:ml-0 md:mx-auto"
+              />
+              <img
+                src="https://pagedone.io/asset/uploads/1696238684.png"
+                alt="Team tailwind section"
+                class="mx-auto h-56 w-44 rounded-2xl object-cover min-[450px]:mr-0 md:mt-20 md:ml-0"
+              />
+              <img
+                src="https://pagedone.io/asset/uploads/1696238702.png"
+                alt="Team tailwind section"
+                class="mx-auto h-56 w-44 rounded-2xl object-cover min-[450px]:ml-0 md:mr-0 md:ml-auto"
+              />
+              <img
+                src="https://pagedone.io/asset/uploads/1696238720.png"
+                alt="Team tailwind section"
+                class="mx-auto h-56 w-44 rounded-2xl object-cover min-[450px]:mr-0 md:mx-auto md:-mt-20"
+              />
+              <img
+                src="https://pagedone.io/asset/uploads/1696238737.png"
+                alt="Team tailwind section"
+                class="mx-auto h-56 w-44 rounded-2xl object-cover min-[450px]:ml-0 md:mr-0"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

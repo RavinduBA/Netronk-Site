@@ -1,0 +1,54 @@
+---
+import CountAnimation from "../shared/CountAnimation";
+---
+
+<div class="bg-white py-8 sm:py-12">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto flex max-w-2xl items-start justify-start lg:max-w-none">
+      <dl
+        class="grid grid-cols-2 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 md:grid-cols-4"
+      >
+        <div class="flex flex-col bg-gray-200/50 p-8">
+          <dt class="text-sm leading-6 font-semibold text-gray-600">
+            Active Users
+          </dt>
+          <dd
+            class="order-first flex items-center justify-center gap-1 text-3xl font-semibold tracking-tight text-gray-900"
+          >
+            <CountAnimation number={40} client:load transition:persist /> M+
+          </dd>
+        </div>
+        <div class="flex flex-col bg-gray-200/50 p-8">
+          <dt class="text-sm leading-6 font-semibold text-gray-600">
+            companies collaborated
+          </dt>
+          <dd
+            class="order-first text-3xl font-semibold tracking-tight text-gray-900"
+          >
+            <CountAnimation number={56} client:load transition:persist />
+          </dd>
+        </div>
+        <div class="flex flex-col bg-gray-200/50 p-8">
+          <dt class="text-sm leading-6 font-semibold text-gray-600">
+            Completed Projects
+          </dt>
+          <dd
+            class="order-first flex items-center justify-center gap-1 text-3xl font-semibold tracking-tight text-gray-900"
+          >
+            <CountAnimation number={100} client:load transition:persist /> +
+          </dd>
+        </div>
+        <div class="flex flex-col bg-gray-200/50 p-8">
+          <dt class="text-sm leading-6 font-semibold text-gray-600">
+            Years of Experience
+          </dt>
+          <dd
+            class="order-first flex items-center justify-center gap-1 text-3xl font-semibold tracking-tight text-gray-900"
+          >
+            <CountAnimation number={5} client:load transition:persist /> +
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>

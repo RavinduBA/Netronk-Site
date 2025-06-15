@@ -1,0 +1,23 @@
+---
+import Layout from "~layouts/Layout.astro";
+import WorksCard from "~components/works/WorksCard.astro";
+
+import { getCollection } from "astro:content";
+
+const works = await getCollection("works");
+---
+
+<Layout
+  title="The Netronk Works"
+  ogTitle="Netronk Works"
+  canonical={new URL(Astro.url.pathname, Astro.site).href}
+  description="The Netronk Services are a set of services that are used to power the Netronk ecosystem."
+>
+  <main class="mx-auto max-w-6xl flex-col gap-y-8 px-4 md:px-8">
+    <section class="my-8 md:my-16">
+      <li class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+        {works && works.map((work) => <WorksCard {work} />)}
+      </li>
+    </section>
+  </main>
+</Layout>

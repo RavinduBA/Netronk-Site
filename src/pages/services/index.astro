@@ -1,0 +1,655 @@
+---
+import Layout from "~layouts/Layout.astro";
+
+import { Code } from "astro:components";
+
+import LayoutIcon from "./_assets/layouts.svg";
+import SearchIcon from "./_assets/search.svg";
+import DigitalMarketingIcon from "./_assets/digital-marketing-1.svg";
+import PuzzeIcon from "./_assets/puzzle.svg";
+import UxMobileIcon from "./_assets/ux-mobile.svg";
+import StyleIcon from "./_assets/style.svg";
+import AddWalletIcon from "./_assets/add-wallet.svg";
+import WebIcon from "./_assets/web.svg";
+import BrandIcon from "./_assets/brand.svg";
+import MultiSelectIcon from "./_assets/multi-select.svg";
+import MobileFeaturesIcon from "./_assets/mobile-features.svg";
+import CodeMobileIcon from "./_assets/code-mobile.svg";
+---
+
+<Layout
+  title="The Netronk Services"
+  ogTitle="The Netronk Services"
+  description="At Netronk, Elevating Web Solutions with Excellence, Innovation, and Client Satisfaction"
+  canonical={new URL(Astro.url.pathname, Astro.site).href}
+>
+  <main class="mx-auto max-w-6xl flex-col gap-y-8 px-4 md:px-8">
+    <section class="mt-4 md:mt-16" id="hero">
+      <div class="flex flex-col gap-4 py-8 md:py-16 lg:py-20">
+        <h1
+          class="max-w-2xl font-sans text-3xl font-bold md:text-4xl lg:text-7xl"
+        >
+          Digital solutions for the AI age
+        </h1>
+        <p class="max-w-4xl text-base text-gray-700 md:text-lg lg:text-xl">
+          Delivering cutting-edge digital solutions tailored to your business
+          needs, from custom websites and apps to stunning visuals and strategic
+          marketing.
+        </p>
+      </div>
+    </section>
+    <section class="mt-8 md:mt-16" id="our-expertice">
+      <div class="my-8 flex flex-col gap-4">
+        <h2
+          class="max-w-2xl font-sans text-2xl font-bold md:text-3xl lg:text-5xl"
+        >
+          Our Expertise
+        </h2>
+        <div class="mt-2 grid gap-4 lg:grid-cols-3 lg:grid-rows-2">
+          <div class="relative lg:row-span-2">
+            <div
+              class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                <p
+                  class="mt-2 text-lg font-semibold tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Scalable Solutions
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Adapt seamlessly to business growth with systems designed for
+                  long-term flexibility and efficiency.
+                </p>
+              </div>
+              <div
+                class="[container-type:inline-size] relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm"
+              >
+                <div
+                  class="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl"
+                >
+                  <img
+                    class="size-full object-cover object-top"
+                    src="https://tailwindui.com/plus/img/component-images/bento-03-mobile-friendly.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg ring-1 shadow ring-black/5 lg:rounded-l-[2rem]"
+            >
+            </div>
+          </div>
+          <div class="relative max-lg:row-start-1">
+            <div
+              class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-semibold tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Optimized Performance
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Deliver fast, responsive, and reliable digital experiences for
+                  your users, no matter the scale.
+                </p>
+              </div>
+              <div
+                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
+              >
+                <img
+                  class="w-full max-lg:max-w-xs"
+                  src="/images/services/bento-03-performance.png"
+                  alt="netronk performance indicator"
+                />
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg ring-1 shadow ring-black/5 max-lg:rounded-t-[2rem]"
+            >
+            </div>
+          </div>
+          <div
+            class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2"
+          >
+            <div class="absolute inset-px rounded-lg bg-white"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
+            >
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-semibold tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Robust Security Measures
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Protect your business with advanced security solutions that
+                  ensure data safety and build customer trust.
+                </p>
+              </div>
+              <div
+                class="[container-type:inline-size] flex flex-1 items-center max-lg:py-6 lg:pb-2"
+              >
+                <img
+                  class="h-[min(152px,40cqw)] object-cover"
+                  src="/images/services/bento-03-security.png"
+                  alt="netronk security"
+                />
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg ring-1 shadow ring-black/5"
+            >
+            </div>
+          </div>
+          <div class="relative lg:row-span-2">
+            <div
+              class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                <p
+                  class="mt-2 text-lg font-semibold tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Innovative Technologies
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Stay ahead of the curve with creative, future-proof solutions
+                  tailored to your industry.
+                </p>
+              </div>
+              <div class="relative min-h-[30rem] w-full grow">
+                <div
+                  class="absolute top-10 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-gray-900 shadow-2xl"
+                >
+                  <div class="flex bg-gray-800/40 ring-1 ring-white/5">
+                    <div
+                      class="-mb-px flex text-sm/6 font-medium text-gray-400"
+                    >
+                      <div
+                        class="border-r border-b border-r-white/10 border-b-white/20 bg-white/5 px-4 py-2 text-gray-100"
+                      >
+                        mergeSort.hs
+                      </div>
+                      <div class="border-r border-gray-600/10 px-4 py-2">
+                        quickSort.hs
+                      </div>
+                    </div>
+                  </div>
+                  <div class="px-6 pt-6 pb-14 text-xs text-gray-100">
+                    <Code
+                      code={`mergeSort :: (Ord a) => [a] -> [a]
+mergeSort [] = []
+mergeSort [x] = [x]
+mergeSort xs = merge (mergeSort left) (mergeSort right)
+  where
+    (left, right) = splitAt (length xs div 2) xs
+    merge [] ys = ys
+    merge xs [] = xs
+    merge (x:xs) (y:ys)
+      | x < y     = x : merge xs (y:ys)
+      | otherwise = y : merge (x:xs) ys
+
+main :: IO ()
+main = print $ mergeSort [5, 2, 9, 1, 5, 6]
+`}
+                      lang="haskell"
+                      wrap
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg ring-1 shadow ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-16 md:mt-20 lg:mt-32" id="ui-ux-design">
+      <div class="flex flex-col gap-4">
+        <h3
+          class="max-w-2xl font-sans text-2xl font-bold uppercase md:text-2xl lg:text-4xl"
+        >
+          UI/UX Design
+        </h3>
+        <p class="max-w-3xl text-base text-gray-700 md:text-lg lg:text-xl">
+          Design user-centric experiences that enhance engagement and improve
+          usability.
+        </p>
+      </div>
+      <div
+        class="mt-4 grid overflow-hidden rounded-3xl py-12 text-gray-800 sm:grid-cols-3 xl:grid-cols-3"
+      >
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8">
+            <PuzzeIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Wireframing & Prototyping
+              </h4>
+              <p class="text-gray-600">
+                Visualize the structure and flow of your app or website before
+                development.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 px-0 md:px-8">
+            <LayoutIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                User Interface Design
+              </h4>
+              <p class="text-gray-600">
+                Create visually stunning designs that align with your brand.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8">
+            <UxMobileIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                User Experience Optimization
+              </h4>
+              <p class="text-gray-600">
+                Enhance usability with research-driven solutions for better
+                customer retention.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-16 md:mt-20 lg:mt-32" id="web-development">
+      <div class="flex flex-col gap-4">
+        <h3
+          class="max-w-2xl font-sans text-2xl font-bold uppercase md:text-2xl lg:text-4xl"
+        >
+          Web development
+        </h3>
+        <p class="max-w-3xl text-base text-gray-700 md:text-lg lg:text-xl">
+          We create fast, secure, and scalable websites and applications,
+          combining modern technologies to deliver custom solutions tailored to
+          your business needs.
+        </p>
+      </div>
+      <div
+        class="mt-4 grid divide-x divide-y divide-gray-300 overflow-hidden rounded-3xl border border-gray-300 text-gray-800 sm:grid-cols-3 sm:divide-y-0 xl:grid-cols-3"
+      >
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 p-8">
+            <AddWalletIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Shopify Store Design and Development
+              </h4>
+              <p class="text-gray-600">
+                Create custom, high-converting Shopify stores with unique
+                designs, seamless integrations, and optimized for e-commerce
+                success.
+              </p>
+              <ul class="flex flex-wrap gap-2 pt-4">
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  next js
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  remix js
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  graph ql
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 p-8">
+            <StyleIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Frontend Development
+              </h4>
+              <p class="text-gray-600">
+                Build responsive and interactive user interfaces using
+                frameworks like Remix, Next js, Astro and Vue.js.
+              </p>
+              <ul class="flex flex-wrap gap-2 pt-4">
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  typescript
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  react
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  astro
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 p-8">
+            <WebIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Backend Development
+              </h4>
+              <p class="text-gray-600">
+                Develop robust server-side applications and databases with
+                technologies like Node.js, Python, and MySQL to ensure
+                scalability and smooth functionality.
+              </p>
+              <ul class="flex flex-wrap gap-2 pt-4">
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  rest api
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  node
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  database
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-16 md:mt-20 lg:mt-32" id="mobile-development">
+      <div class="flex flex-col gap-4">
+        <h3
+          class="max-w-2xl font-sans text-2xl font-bold uppercase md:text-2xl lg:text-4xl"
+        >
+          Mobile App Development
+        </h3>
+        <p class="max-w-3xl text-base text-gray-700 md:text-lg lg:text-xl">
+          Craft innovative mobile solutions tailored to your audience, offering
+          seamless experiences across platforms.
+        </p>
+      </div>
+      <div
+        class="mt-4 grid divide-x divide-y divide-gray-300 overflow-hidden rounded-3xl border border-gray-300 text-gray-800 sm:grid-cols-3 sm:divide-y-0 xl:grid-cols-3"
+      >
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 p-8">
+            <CodeMobileIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                iOS App Development
+              </h4>
+              <p class="text-gray-600">
+                Design sleek, user-friendly apps using Swift and SwiftUI for
+                Apple devices.
+              </p>
+              <ul class="flex flex-wrap gap-2 pt-4">
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  swift
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  swiftui
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  app store
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 p-8">
+            <MobileFeaturesIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Android App Development
+              </h4>
+              <p class="text-gray-600">
+                Build robust, scalable Android apps with Kotlin or Java.
+              </p>
+              <ul class="flex flex-wrap gap-2 pt-4">
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  kotlin
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  java
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  play store
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 p-8">
+            <MultiSelectIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Cross-Platform Apps
+              </h4>
+              <p class="text-gray-600">
+                Develop apps using Flutter or React Native for faster deployment
+                across multiple platforms.
+              </p>
+              <ul class="flex flex-wrap gap-2 pt-4">
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  flutter
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  react-native
+                </li>
+                <li
+                  class="rounded-md bg-gray-200 px-2 py-1 text-sm font-semibold"
+                >
+                  tauri
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-16 md:mt-20 lg:mt-32" id="digital-marketing">
+      <div class="flex flex-col gap-4">
+        <h3
+          class="max-w-2xl font-sans text-2xl font-bold uppercase md:text-2xl lg:text-4xl"
+        >
+          Digital Marketing
+        </h3>
+        <p class="max-w-3xl text-base text-gray-700 md:text-lg lg:text-xl">
+          Boost your online presence with tailored strategies that drive
+          traffic, engagement, and conversions.
+        </p>
+      </div>
+      <div
+        class="mt-4 grid overflow-hidden rounded-3xl py-12 text-gray-800 sm:grid-cols-3 xl:grid-cols-3"
+      >
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8">
+            <SearchIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                SEO Services
+              </h4>
+              <p class="text-gray-600">
+                Optimize your website to rank higher on search engines and
+                increase organic traffic.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8 px-0 md:px-8">
+            <DigitalMarketingIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Social Media Marketing
+              </h4>
+              <p class="text-gray-600">
+                Create impactful campaigns on platforms like Facebook,
+                Instagram, and Twitter.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative bg-white transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-300/20"
+        >
+          <div class="relative space-y-8">
+            <BrandIcon
+              class="size-16 rounded-full border border-gray-200"
+              style="color:transparent"
+            />
+            <div class="space-y-2">
+              <h4
+                class="group-hover:text-primary text-xl font-semibold text-gray-900 transition"
+              >
+                Content Marketing
+              </h4>
+              <p class="text-gray-600">
+                Develop engaging blogs, videos, and graphics to captivate your
+                audience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

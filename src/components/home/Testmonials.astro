@@ -1,0 +1,38 @@
+---
+import TestmonialCard from "../shared/TestmonialCard.astro";
+
+const testimonials = [
+  {
+    quote:
+      "Netronk Innovations exceeded our expectations. Their innovative solutions and attention to detail are unparalleled. A fantastic team to collaborate with!",
+    author: "Godwin Oluwafemi",
+    position: "CEO At ImgTune",
+    avatar: "/images/reviews/5c7ae7ca-72c2-4e7c-b76c-f3ca9e901c65.webp",
+  },
+];
+
+let testimonialIndex = 0;
+---
+
+<section class="container">
+  <TestmonialCard
+    quote={testimonials[testimonialIndex].quote}
+    author={testimonials[testimonialIndex].author}
+    position={testimonials[testimonialIndex].position}
+    avatar={testimonials[testimonialIndex].avatar}
+  />
+  <!-- <div class="reviews">
+    <a href="/">Sell All reviews</a>
+  </div> -->
+</section>
+
+<style lang="postcss">
+  @reference "~styles/global.css";
+  section.container {
+    @apply flex-col gap-2 justify-center items-center overflow-x-scroll flex w-full mt-12 sm:mt-20;
+  }
+
+  div.reviews {
+    @apply flex gap-2 justify-center items-center text-gray-300 lowercase underline-offset-4 underline decoration-wavy;
+  }
+</style>

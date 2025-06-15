@@ -1,0 +1,116 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  work: CollectionEntry<"works">;
+}
+
+const { work } = Astro.props;
+---
+
+<a
+  href={`/works/${work.id}`}
+  class="group relative mb-6 rounded-md border border-gray-200"
+>
+  <div class="relative z-10 p-6">
+    <div class="flex flex-col gap-6">
+      <!-- Image Section -->
+      <div class="w-full">
+        <div class="group relative">
+          <div class="clip-angular relative overflow-hidden">
+            <!-- Corners -->
+            <div class="absolute inset-0 z-40">
+              <div
+                class="border-primary absolute -top-[1px] -left-[1px] h-4 w-4 border-t-3 border-l-3"
+              >
+              </div>
+              <div
+                class="border-primary absolute -top-[1px] -right-[1px] h-4 w-4 border-t-3 border-r-3"
+              >
+              </div>
+              <div
+                class="border-primary absolute -bottom-[1px] -left-[1px] h-4 w-4 border-b-3 border-l-3"
+              >
+              </div>
+              <div
+                class="border-primary absolute -right-[1px] -bottom-[1px] h-4 w-4 border-r-3 border-b-3"
+              >
+              </div>
+            </div>
+
+            <!-- Image Container -->
+            <div class="clip-angular relative m-[3px] overflow-hidden">
+              <img
+                src={work.data.image.src}
+                alt={work.data.image.alt}
+                class="h-[300px] w-full transform object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          <!-- Hover Overlay -->
+          <div
+            class="clip-angular absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          >
+            <div class="absolute bottom-4 left-4">
+              <span
+                class="clip-button inline-flex items-center bg-white/10 px-3 py-1 text-sm text-white backdrop-blur-sm"
+              >
+                <svg
+                  class="mr-1 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  ></path>
+                </svg>
+                Preview
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="space-y-4">
+        <!-- Title Section -->
+        <div class="space-y-2">
+          <span
+            class="text-sm font-medium tracking-wider text-gray-400 uppercase"
+          >
+            {work.data.shorttitle}
+          </span>
+          <h3 class="text-2xl font-bold text-gray-900">{work.data.title}</h3>
+        </div>
+
+        <!-- Description -->
+        <p class="leading-relaxed text-gray-900">
+          {work.data.description}
+        </p>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2">
+          {
+            work.data.tags.map((tag: string) => (
+              <span class="border-primary/30 bg-primary/5 rounded-sm border px-3 py-1 text-sm text-gray-900">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+
+<!-- ... existing styles remain the same ... -->
